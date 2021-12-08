@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_HappyNewYear);
+
         setContentView(R.layout.activity_main);
 
         this.mViewHolder.textToday = findViewById(R.id.text_today);
