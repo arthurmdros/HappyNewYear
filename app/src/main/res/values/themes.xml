@@ -10,8 +10,12 @@
         <item name="colorSecondaryVariant">@color/colorDivider</item>
         <item name="colorOnSecondary">@color/colorLightGreen</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
         <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="Theme.Splash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+            <item name="android:windowBackground">@drawable/splash_bg</item>
     </style>
 </resources>
