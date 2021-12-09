@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mSecurityPreferences = new SecurityPreferences(this);
         this.mViewHolder.textToday = findViewById(R.id.text_today);
         this.mViewHolder.textDaysLeft = findViewById(R.id.text_days_left);
+        this.mViewHolder.textPresence = findViewById(R.id.value_presence);
         this.mViewHolder.buttonConfirm = findViewById(R.id.button_confirm);
 
         this.mViewHolder.buttonConfirm.setOnClickListener(this);
@@ -61,11 +62,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String presence = this.mSecurityPreferences.getStoredData(HappyNewYearConstants.PRESENCE_KEY);
 
         if(presence.equals("")){
-            this.mViewHolder.buttonConfirm.setText(getString(R.string.não_confirmado));
+            this.mViewHolder.textPresence.setText(getString(R.string.não_confirmado));
         }else if(presence.equals(HappyNewYearConstants.CONFIRM_YES)){
-            this.mViewHolder.buttonConfirm.setText(getString(R.string.sim));
+            this.mViewHolder.textPresence.setText(getString(R.string.sim));
+        }else if(presence.equals(HappyNewYearConstants.CONFIRM_NO)){
+            this.mViewHolder.textPresence.setText(getString(R.string.não));
         }else{
-            this.mViewHolder.buttonConfirm.setText(getString(R.string.não));
+            this.mViewHolder.textPresence.setText(getString(R.string.talvez));
         }
     }
 
@@ -82,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static class ViewHolder {
         TextView textToday;
         TextView textDaysLeft;
+        TextView textPresence;
         Button buttonConfirm;
     }
 }
