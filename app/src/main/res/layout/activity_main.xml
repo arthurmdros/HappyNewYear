@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="01/01/2021"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="26sp" />
 
     <View
@@ -30,6 +31,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="160dp"
         android:text="@string/dias_restantes_para_o_fim_de_ano"
+        android:textColor="@color/colorPrimaryText"
         android:textSize="20sp" />
 
     <TextView
@@ -47,8 +49,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text_days_left"
-        android:layout_marginTop="50dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
         android:text="Status da presença:"
         android:textColor="@color/colorPrimaryText"
         android:textSize="16sp" />
