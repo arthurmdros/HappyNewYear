@@ -38,14 +38,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.mViewHolder.textToday.setText(SIMPLE_DATA_FORMAT.format(Calendar.getInstance().getTime()));
         String daysLeft = String.format("%s %s", String.valueOf(this.getDaysLeft()),getString(R.string.dias));
         this.mViewHolder.textDaysLeft.setText(daysLeft);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         this.verifyPresence();
     }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.button_confirm){
+            String presence = this.mSecurityPreferences.getStoredData(HappyNewYearConstants.PRESENCE_KEY);
             Intent navigateToDetails = new Intent(this, DetailsActivity.class);
+
+            navigateToDetails.putExtra(HappyNewYearConstants.PRESENCE_KEY, presence);
             startActivity(navigateToDetails);
         }
     }
