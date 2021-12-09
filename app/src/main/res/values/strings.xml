@@ -4,6 +4,10 @@
     <string name="voce_vai_participar">Você vai participar?</string>
     <string name="dias">dias</string>
     <string name="não_confirmado">Não confirmado</string>
-    <string name="sim">Sim</string>
-    <string name="não">Não</string>
+    <string name="confirmar_presenca">Confirmar presença</string>
+    <string name="sim">Sim, estarei lá</string>
+    <string name="não">Não, não estarei lá</string>
+    <string name="talvez">Talvez eu esteja lá</string>
+    <string name="salvar">Salvar</string>
+    <string name="alerta">Selecione uma opção para continuar!</string>
 </resources>
