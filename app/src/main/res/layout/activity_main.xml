@@ -5,14 +5,14 @@
     android:layout_height="match_parent"
     android:background="@drawable/background"
     android:padding="8dp"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <TextView
         android:id="@+id/text_today"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="01/01/2021!" />
+        android:text="01/01/2021" />
 
     <View
         android:layout_width="match_parent"
