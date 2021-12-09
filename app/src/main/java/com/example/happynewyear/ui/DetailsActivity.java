@@ -30,24 +30,55 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         this.mViewHolder.checkNo = findViewById(R.id.check_confirm_no);
         this.mViewHolder.checkMaybe = findViewById(R.id.check_confirm_maybe);
         this.mViewHolder.buttonSave = findViewById(R.id.button_save);
+
         this.mViewHolder.buttonSave.setOnClickListener(this);
+        this.mViewHolder.checkYes.setOnClickListener(this);
+        this.mViewHolder.checkNo.setOnClickListener(this);
+        this.mViewHolder.checkMaybe.setOnClickListener(this);
 
         this.loadData();
     }
 
     @Override
     public void onClick(View v) {
+        if(v.getId() == R.id.check_confirm_yes){
+            if(this.mViewHolder.checkYes.isChecked()){
+                this.mViewHolder.checkNo.setEnabled(false);
+                this.mViewHolder.checkMaybe.setEnabled(false);
+            }else{
+                this.mViewHolder.checkNo.setEnabled(true);
+                this.mViewHolder.checkMaybe.setEnabled(true);
+            }
+        }
+        if(v.getId() == R.id.check_confirm_no){
+            if(this.mViewHolder.checkNo.isChecked()){
+                this.mViewHolder.checkYes.setEnabled(false);
+                this.mViewHolder.checkMaybe.setEnabled(false);
+            }else{
+                this.mViewHolder.checkYes.setEnabled(true);
+                this.mViewHolder.checkMaybe.setEnabled(true);
+            }
+        }
+        if(v.getId() == R.id.check_confirm_maybe){
+            if(this.mViewHolder.checkMaybe.isChecked()){
+                this.mViewHolder.checkYes.setEnabled(false);
+                this.mViewHolder.checkNo.setEnabled(false);
+            }else{
+                this.mViewHolder.checkYes.setEnabled(true);
+                this.mViewHolder.checkNo.setEnabled(true);
+            }
+        }
         if(v.getId() == R.id.button_save){
 
             if(this.mViewHolder.checkYes.isChecked()){
                 this.mSecurityPreferences.storeData(HappyNewYearConstants.PRESENCE_KEY, HappyNewYearConstants.CONFIRM_YES);
                 Intent navigateToMain = new Intent(this, MainActivity.class);
                 startActivity(navigateToMain);
-            }else if (this.mViewHolder.checkNo.isChecked()){
+            }else if(this.mViewHolder.checkNo.isChecked()){
                 this.mSecurityPreferences.storeData(HappyNewYearConstants.PRESENCE_KEY, HappyNewYearConstants.CONFIRM_NO);
                 Intent navigateToMain = new Intent(this, MainActivity.class);
                 startActivity(navigateToMain);
-            }else if (this.mViewHolder.checkMaybe.isChecked()){
+            }else if(this.mViewHolder.checkMaybe.isChecked()){
                 this.mSecurityPreferences.storeData(HappyNewYearConstants.PRESENCE_KEY, HappyNewYearConstants.CONFIRM_MAYBE);
                 Intent navigateToMain = new Intent(this, MainActivity.class);
                 startActivity(navigateToMain);
@@ -65,11 +96,17 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
             if(presence != null && presence.equals(HappyNewYearConstants.CONFIRM_YES)){
                 this.mViewHolder.checkYes.setChecked(true);
+                this.mViewHolder.checkNo.setEnabled(false);
+                this.mViewHolder.checkMaybe.setEnabled(false);
             }else if(presence != null && presence.equals(HappyNewYearConstants.CONFIRM_NO)){
                 this.mViewHolder.checkNo.setChecked(true);
+                this.mViewHolder.checkYes.setEnabled(false);
+                this.mViewHolder.checkMaybe.setEnabled(false);
             }
             else if(presence != null && presence.equals(HappyNewYearConstants.CONFIRM_MAYBE)){
                 this.mViewHolder.checkMaybe.setChecked(true);
+                this.mViewHolder.checkYes.setEnabled(false);
+                this.mViewHolder.checkNo.setEnabled(false);
             }else{
                 this.mViewHolder.checkYes.setChecked(false);
                 this.mViewHolder.checkNo.setChecked(false);
