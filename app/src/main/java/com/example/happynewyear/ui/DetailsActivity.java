@@ -25,6 +25,8 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         this.mSecurityPreferences = new SecurityPreferences(this);
         this.mViewHolder.checkConfirm = findViewById(R.id.check_confirm);
         this.mViewHolder.checkConfirm.setOnClickListener(this);
+
+        this.loadData();
     }
 
     @Override
@@ -35,6 +37,20 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
                 this.mSecurityPreferences.storeData(HappyNewYearConstants.PRESENCE_KEY, HappyNewYearConstants.CONFIRM_YES);
             }else{
                 this.mSecurityPreferences.storeData(HappyNewYearConstants.PRESENCE_KEY, HappyNewYearConstants.CONFIRM_NO);
+            }
+        }
+    }
+
+    private void loadData(){
+        Bundle extras = getIntent().getExtras();
+
+        if(extras != null){
+            String presence = extras.getString(HappyNewYearConstants.PRESENCE_KEY);
+
+            if(presence != null && presence.equals(HappyNewYearConstants.CONFIRM_YES)){
+                this.mViewHolder.checkConfirm.setChecked(true);
+            }else{
+                this.mViewHolder.checkConfirm.setChecked(false);
             }
         }
     }
