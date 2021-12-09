@@ -2,9 +2,12 @@ package com.example.happynewyear.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.Toast;
 
 import com.example.happynewyear.R;
 import com.example.happynewyear.constant.HappyNewYearConstants;
@@ -23,12 +26,14 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_details);
 
         this.mSecurityPreferences = new SecurityPreferences(this);
-        this.mViewHolder.checkConfirm = findViewById(R.id.check_confirm);
-        this.mViewHolder.checkConfirm.setOnClickListener(this);
+        this.mViewHolder.checkYes = findViewById(R.id.check_confirm_yes);
+        this.mViewHolder.checkNo = findViewById(R.id.check_confirm_no);
+        this.mViewHolder.checkMaybe = findViewById(R.id.check_confirm_maybe);
+        this.mViewHolder.buttonSave = findViewById(R.id.button_save);
+        this.mViewHolder.buttonSave.setOnClickListener(this);
 
         this.loadData();
     }
-
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.check_confirm){
@@ -56,6 +61,9 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private static class ViewHolder{
-        CheckBox checkConfirm;
+        CheckBox checkMaybe;
+        CheckBox checkYes;
+        CheckBox checkNo;
+        Button buttonSave;
     }
 }
