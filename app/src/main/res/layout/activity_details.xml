@@ -12,12 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/voce_vai_participar" />
+        android:text="@string/voce_vai_participar"
+        android:textSize="28sp" />
 
     <View
         android:layout_width="wrap_content"
         android:layout_height="1dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@color/colorPrimary" />
 
     <CheckBox
@@ -26,6 +27,7 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="1"
-        android:text="@string/voce_vai_participar" />
+        android:text="@string/voce_vai_participar"
+        android:textSize="28sp" />
 
 </LinearLayout>
